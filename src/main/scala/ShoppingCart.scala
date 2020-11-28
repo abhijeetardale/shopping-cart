@@ -11,6 +11,8 @@ object ShoppingCart {
 	}
 
 
-	def checkout(empty: List[Nothing]) : String = ???
+	def checkout(items: List[String]) : String = {
+		"£0.0"
+	}
 
 }

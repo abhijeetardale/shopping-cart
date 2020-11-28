@@ -28,6 +28,11 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 				cart.checkout(List("Orange", "Apple", "Apple", "Orange", "Orange", "Orange", "Apple"), false) mustBe "£2.8"
 			}
+
+			"return £2.8 for list 0f Apple, Apple, Orange, Orange, Orange, Apple, Apple if offer applied" in {
+
+				ShoppingCart.checkout(List("Orange", "Apple", "Apple", "Orange", "Orange", "Orange", "Apple"), true) mustBe "£1.95"
+			}
 		}
 
 		"Calling orange price" must {

@@ -1,11 +1,13 @@
 object ShoppingCart {
 
-	def applePrice(numberOfItesm: Int) : Double = {
+	def applePrice(numberOfItems: Int) : Double = {
 
-		numberOfItesm * 0.6
+		numberOfItems * 0.6
 
 	}
 
-	def orangePrice(i: Int) : Double = ???
+	def orangePrice(numberOfItems: Int) : Double = {
+		0.25
+	}
 
 }

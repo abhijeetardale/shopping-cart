@@ -13,10 +13,10 @@ object ShoppingCart {
 
 	def checkout(items: List[String]) : String = {
 
-		val result = items match {
-			case _ if items.contains("Apple") => applePrice(items.count(_=="Apple"))
-			case _ if items.contains("Orange") => orangePrice(items.count(_=="Orange"))
-			case Nil => 0.0
+		val result = if(items.nonEmpty) {
+			applePrice(items.count(_=="Apple")) + orangePrice(items.count(_=="Orange"))
+		} else {
+			0.0
 		}
 
 		s"£$result"

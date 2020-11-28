@@ -17,10 +17,10 @@ object ShoppingCart {
 	}
 
 
-	def checkout(items: List[String]) : String = {
+	def checkout(items: List[String], applyOffer:Boolean) : String = {
 
 		val result = if(items.nonEmpty) {
-			applePrice(items.count(_=="Apple"), offer = false) + orangePrice(items.count(_=="Orange"), offer = false)
+			applePrice(items.count(_=="Apple"), applyOffer) + orangePrice(items.count(_=="Orange"), applyOffer)
 		} else {
 			0.0
 		}

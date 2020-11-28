@@ -21,7 +21,12 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 			}
 
 			"rerun £1.2 for 3 Apples with an offer" in {
-				ShoppingCart.applePrice(3, true) mustBe 1.2
+				cart.applePrice(3, true) mustBe 1.2
+			}
+
+			"return £2.8 for list 0f Apple, Apple, Orange, Orange, Orange, Apple, Apple if no offer" in {
+
+				cart.checkout(List("Orange", "Apple", "Apple", "Orange", "Orange", "Orange", "Apple"), false) mustBe "£2.8"
 			}
 		}
 
@@ -36,11 +41,11 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 			}
 
 			"rerun £0.50 for three Oranges with an offer" in {
-				ShoppingCart.orangePrice(3, true) mustBe 0.50
+				cart.orangePrice(3, true) mustBe 0.50
 			}
 
 			"rerun £0.75 for 4 Oranges" in {
-				ShoppingCart.orangePrice(4, true) mustBe 0.75
+				cart.orangePrice(4, true) mustBe 0.75
 			}
 		}
 
@@ -48,22 +53,22 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 			"return 0 if cart is empty" in {
 
-				cart.checkout(List.empty) mustBe "£0.0"
+				cart.checkout(List.empty, false) mustBe "£0.0"
 			}
 
 			"return £1.2 if cart contains 2 Apples" in {
 
-				cart.checkout(List("Apple", "Apple")) mustBe "£1.2"
+				cart.checkout(List("Apple", "Apple"), false) mustBe "£1.2"
 			}
 
 			"return £1.0 if cart contains 4 Oranges" in {
 
-				cart.checkout(List("Orange", "Orange", "Orange", "Orange")) mustBe "£1.0"
+				cart.checkout(List("Orange", "Orange", "Orange", "Orange"), false) mustBe "£1.0"
 			}
 
 			"return £2.05 for list 0f Apple, Apple, Orange, Apple" in {
 
-				ShoppingCart.checkout(List("Apple", "Apple", "Orange", "Apple")) mustBe "£2.05"
+				cart.checkout(List("Apple", "Apple", "Orange", "Apple"), false) mustBe "£2.05"
 			}
 		}
 	}

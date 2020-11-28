@@ -12,7 +12,14 @@ object ShoppingCart {
 
 
 	def checkout(items: List[String]) : String = {
-		"£0.0"
+
+		val result = if(items.contains("Apple")){
+			applePrice(items.count(_=="Apple"))
+		} else{
+			0.0
+		}
+
+		s"£$result"
 	}
 
 }

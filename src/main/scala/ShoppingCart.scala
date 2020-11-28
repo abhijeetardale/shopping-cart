@@ -6,4 +6,6 @@ object ShoppingCart {
 
 	}
 
+	def orangePrice(i: Int) : Double = ???
+
 }

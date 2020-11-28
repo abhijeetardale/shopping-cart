@@ -8,7 +8,7 @@ object ShoppingCart {
 		}
 	}
 
-	def orangePrice(numberOfItems: Int) : Double = {
+	def orangePrice(numberOfItems: Int, offer:Boolean) : Double = {
 
 		numberOfItems * 0.25
 	}
@@ -17,7 +17,7 @@ object ShoppingCart {
 	def checkout(items: List[String]) : String = {
 
 		val result = if(items.nonEmpty) {
-			applePrice(items.count(_=="Apple"), offer = false) + orangePrice(items.count(_=="Orange"))
+			applePrice(items.count(_=="Apple"), offer = false) + orangePrice(items.count(_=="Orange"), false)
 		} else {
 			0.0
 		}

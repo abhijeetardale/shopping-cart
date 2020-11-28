@@ -20,7 +20,7 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 				cart.applePrice(2, true) mustBe 0.6
 			}
 
-			"rerun £1.2 for 3 Apples" in {
+			"rerun £1.2 for 3 Apples with an offer" in {
 				ShoppingCart.applePrice(3, true) mustBe 1.2
 			}
 		}
@@ -28,11 +28,15 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 		"Calling orange price" must {
 
 			"return £0.25 for an Orange" in {
-				cart.orangePrice(1) mustBe 0.25
+				cart.orangePrice(1, false) mustBe 0.25
 			}
 
 			"return £0.25 for two Oranges" in {
-				cart.orangePrice(2) mustBe 0.50
+				cart.orangePrice(2, false) mustBe 0.50
+			}
+
+			"rerun £0.50 for three Oranges with an offer" in {
+				ShoppingCart.orangePrice(3, true) mustBe 0.50
 			}
 		}
 

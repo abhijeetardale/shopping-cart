@@ -1,2 +1,12 @@
 *.class
 *.log
+.idea
+/.idea_modules
+lib
+lib_managed
+log
+logs
+/.project
+project
+project/target
+target

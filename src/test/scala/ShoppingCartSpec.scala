@@ -33,6 +33,13 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 				cart.checkout(List("Orange", "Apple", "Apple", "Orange", "Orange", "Orange", "Apple"), applyOffer = true) mustBe "£1.95"
 			}
+
+			"throw invalid item exception if cart contains anything else" in {
+
+				intercept[RuntimeException]{
+					cart.checkout(List("Orange", "Apple", "Invalid"), applyOffer = true)
+				}
+			}
 		}
 
 		"Calling orange price" must {

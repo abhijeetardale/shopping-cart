@@ -19,10 +19,10 @@ object ShoppingCart {
 
 	def checkout(items: List[String], applyOffer:Boolean) : String = {
 
-		val result = if(items.nonEmpty) {
-			applePrice(items.count(_=="Apple"), applyOffer) + orangePrice(items.count(_=="Orange"), applyOffer)
-		} else {
-			0.0
+		val result = items match {
+			case Nil => 0.0
+			case _ if !items.forall(item => item == "Apple" || item == "Orange") => throw new RuntimeException("Invalid Item")
+			case _ => applePrice(items.count(_=="Apple"), applyOffer) + orangePrice(items.count(_=="Orange"), applyOffer)
 		}
 
 		s"£$result"

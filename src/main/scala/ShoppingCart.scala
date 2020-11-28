@@ -10,4 +10,7 @@ object ShoppingCart {
 		numberOfItems * 0.25
 	}
 
+
+	def checkout(empty: List[Nothing]) : String = ???
+
 }

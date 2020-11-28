@@ -4,9 +4,9 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 	val cart = ShoppingCart
 
-	"ShoppingCart" when{
+	"ShoppingCart" when {
 
-		"Calling apple price" must{
+		"Calling apple price" must {
 
 			"rerun £0.6 for an Apple" in {
 				cart.applePrice(1) mustBe 0.6
@@ -17,7 +17,7 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 			}
 		}
 
-		"Calling orange price" must{
+		"Calling orange price" must {
 
 			"rerun £0.25 for an Orange" in {
 				cart.orangePrice(1) mustBe 0.25
@@ -25,6 +25,14 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 			"rerun £0.25 for two Oranges" in {
 				cart.orangePrice(2) mustBe 0.50
+			}
+		}
+
+		"Calling checkout" must{
+
+			"return 0 if cart is empty" in {
+
+				cart.checkout(List.empty) mustBe "£0.0"
 			}
 		}
 	}

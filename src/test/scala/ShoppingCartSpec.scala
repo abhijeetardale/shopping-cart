@@ -38,6 +38,10 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 			"rerun £0.50 for three Oranges with an offer" in {
 				ShoppingCart.orangePrice(3, true) mustBe 0.50
 			}
+
+			"rerun £0.75 for 4 Oranges" in {
+				ShoppingCart.orangePrice(4, true) mustBe 0.75
+			}
 		}
 
 		"Calling checkout" must{

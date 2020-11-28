@@ -8,22 +8,26 @@ class ShoppingCartSpec extends WordSpec with MustMatchers {
 
 		"Calling apple price" must {
 
-			"rerun £0.6 for an Apple" in {
-				cart.applePrice(1) mustBe 0.6
+			"return £0.6 for an Apple" in {
+				cart.applePrice(1, false) mustBe 0.6
 			}
 
-			"rerun £1.2 for two Apples" in {
-				cart.applePrice(2) mustBe 1.2
+			"return £1.2 for two Apples" in {
+				cart.applePrice(2, false) mustBe 1.2
+			}
+
+			"return £0.6 for 2 Apples with an offer" in {
+				cart.applePrice(2, true) mustBe 0.6
 			}
 		}
 
 		"Calling orange price" must {
 
-			"rerun £0.25 for an Orange" in {
+			"return £0.25 for an Orange" in {
 				cart.orangePrice(1) mustBe 0.25
 			}
 
-			"rerun £0.25 for two Oranges" in {
+			"return £0.25 for two Oranges" in {
 				cart.orangePrice(2) mustBe 0.50
 			}
 		}

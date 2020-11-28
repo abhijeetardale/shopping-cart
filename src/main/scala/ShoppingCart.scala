@@ -2,7 +2,7 @@ object ShoppingCart {
 
 	def applePrice(numberOfItesm: Int) : Double = {
 
-		0.6
+		numberOfItesm * 0.6
 
 	}
 

@@ -1,10 +1,19 @@
-lazy val root = (project in file(".")).
-  settings(
-    inThisBuild(List(
-      organization := "com.example",
-      scalaVersion := "2.12.7"
-    )),
-    name := "shopping-cart"
-  )
+import scoverage.ScoverageKeys
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % Test
+lazy val phoneCompany = (project in file(".")).settings(
+  Seq(
+    name := "disco-test-phone-company",
+    version := "1.0",
+    scalaVersion := "2.12.3",
+    ScoverageKeys.coverageExcludedFiles := ".*com.phone.Main*;"
+  )
+)
+
+mainClass in (Compile, run) := Some("com.phone.Main")
+
+libraryDependencies ++= Seq(
+  "com.google.inject" % "guice" % "4.2.2",
+  "org.mockito" % "mockito-core" % "3.3.3" % "test",
+  "org.scalacheck" %% "scalacheck" % "1.14.1" % "test",
+  "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0" % "test"
+)
